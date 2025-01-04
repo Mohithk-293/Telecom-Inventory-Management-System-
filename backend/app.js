@@ -42,14 +42,6 @@ app.use(function (req, res, next) {
 // error handler
 
 
-
-
-
-
-
-
-
-
 app.listen(5000, () => {
   console.log('Server is running on port 5000');  // server is listening on port 5000
   connectDB(); // connect to MongoDB database  // connect to MongoDB database when the server is running
