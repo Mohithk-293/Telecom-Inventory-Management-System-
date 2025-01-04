@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
 import Login from './components/Login';
 import Header from './components/Header';
+import { ToastContainer } from 'react-toastify';
 
 import Staff from './pages/Staff.jsx';
 import StaffProducts from './components/StaffProducts.jsx';
@@ -21,6 +22,7 @@ const App = () => {
 
   return (
     <div>
+      <ToastContainer/>
       <Router>
         <Header />
         <Routes>

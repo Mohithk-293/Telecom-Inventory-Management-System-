@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Login = () => {
     const [username, setUsername] = useState("");
@@ -26,6 +27,7 @@ const Login = () => {
                 navigate("/products");
             } else {
                 setError(data.message || "Invalid username or password.");
+                toast.error(data.message);
             }
         } catch (err) {
             setError("An error occurred. Please try again.");
