@@ -8,6 +8,7 @@ router.get('/', function (req, res, next) {
 });
 
 /* Register a new user */
+
 router.post('/register', async (req, res) => {
   const { fullName, username, email, password } = req.body;
 
