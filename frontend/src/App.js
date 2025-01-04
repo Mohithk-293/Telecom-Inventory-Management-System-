@@ -5,7 +5,7 @@ import LoginPage from "./login";
 import RegistrationPage from "./registration";
 
 import React, { useState } from 'react';
-import './App.css';  
+
 
 const AuthForm = () => {
   const [isLogin, setIsLogin] = useState(true);
