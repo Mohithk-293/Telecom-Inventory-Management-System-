@@ -2,6 +2,12 @@ const express = require('express');
 const User = require('../models/users.model'); // Assuming the model is in the models folder
 const router = express.Router();
 
+/* GET users listing. */
+router.get('/', function (req, res, next) {
+  res.send('respond with a resource');
+});
+
+/* Register a new user */
 
 router.post('/register', async (req, res) => {
   const { fullName, username, email, password } = req.body;
@@ -36,17 +42,17 @@ router.post('/register', async (req, res) => {
   }
 });
 
-
+/* Login a user */
 router.post('/login', async (req, res) => {
   const { username, password } = req.body;
 
-  
+  // Validate input
   if (!username || !password) {
     return res.status(400).json({ message: 'Username and password are required' });
   }
 
   try {
-    
+    // Find user by username
     const user = await User.findOne({ username });
     if (!user) {
       return res.status(400).json({ message: 'Invalid username' });
