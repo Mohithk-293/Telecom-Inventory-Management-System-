@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Login = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [role, setRole] = useState("Admin"); // Default role
     const [error, setError] = useState("");
     const navigate = useNavigate();
 
@@ -15,7 +17,7 @@ const Login = () => {
             const response = await fetch("http://localhost:5000/users/login", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ username, password }),
+                body: JSON.stringify({ username, password, role }),
             });
 
             const data = await response.json();
@@ -25,6 +27,7 @@ const Login = () => {
                 navigate("/products");
             } else {
                 setError(data.message || "Invalid username or password.");
+                toast.error(data.message);
             }
         } catch (err) {
             setError("An error occurred. Please try again.");
@@ -61,6 +64,21 @@ const Login = () => {
                             onChange={(e) => setPassword(e.target.value)}
                             required
                         />
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor="role" className="form-label">
+                            Role
+                        </label>
+                        <select
+                            id="role"
+                            className="form-select"
+                            value={role}
+                            onChange={(e) => setRole(e.target.value)}
+                        >
+                            <option value="Admin">Admin</option>
+                            <option value="Manager">Manager</option>
+                            <option value="Staff">Staff</option>
+                        </select>
                     </div>
                     {error && <div className="alert alert-danger">{error}</div>}
                     <div className="d-grid">
