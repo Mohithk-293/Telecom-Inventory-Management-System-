@@ -12,8 +12,14 @@ import Suppliers from './components/Suppliers';
 import Register from './components/Register';
 import Products from './components/Products';
 
+import ManagingUsers from './components/ManagingUsers';
+const App = () => {
+
+
 const App = () => {
   return (
+
+    <div>
     <Router>
       <ToastContainer />
       <Header />
@@ -36,3 +42,4 @@ const App = () => {
 };
 
 export default App;
+
