@@ -1,5 +1,6 @@
 import React from 'react';
 import StaffSidebar from './StaffSidebar.jsx';
+import { Link } from 'react-router-dom';
 
 const dummyProducts = [
     { id: 1, name: 'Laptop', price: 999.99, stock: 50 },
@@ -22,6 +23,9 @@ function Products() {
                             <h2 className="card-title">{product.name}</h2>
                             <p className="card-price"><strong>Price:</strong> ${product.price.toFixed(2)}</p>
                             <p className="card-stock"><strong>Stock:</strong> {product.stock}</p>
+                            <Link to="/transaction">
+                                <button class="transaction-btn">Make a Transaction</button>
+                            </Link>
                         </div>
                     ))}
                 </div>
@@ -36,6 +40,20 @@ function Products() {
                         width:80%;
                         position: absolute;
                         right:0;
+                    }
+                    .transaction-btn {
+                        background-color: #007bff;
+                        color: #fff;
+                        padding: 10px 20px;
+                        font-size: 16px;
+                        border: none;
+                        border-radius: 5px;
+                        cursor: pointer;
+                        transition: background-color 0.3s ease;
+                    }
+
+                    .transaction-btn:hover {
+                        background-color: #0056b3;
                     }
 
                     /* Cards Container */
