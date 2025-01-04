@@ -1,6 +1,9 @@
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
+const jwt = require('jsonwebtoken');
+
+
 
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -9,12 +12,13 @@ const connectDB = require('./mongodbConnection/db.connection.js');
 
 
 
-var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+
+
 
 var app = express();
 
-// view engine setup
+
 
 
 app.use(logger('dev'));
