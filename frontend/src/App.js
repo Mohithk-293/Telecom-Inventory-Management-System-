@@ -114,13 +114,32 @@ const AuthForm = () => {
     </div>
   );
 };
+// import React, { useEffect, useState } from 'react'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './components/Home';
+import Login from './components/Login';
+import Header from './components/Header';
+import Products from './components/Products';
+const App = () => {
 
-function App() {
+
   return (
     <div className="App">
       <AuthForm />
     </div>
-  );
+  );    
 }
+export default App
 
-export default App;
+
+
+
+
+
+
+
+
+
+
+
+
