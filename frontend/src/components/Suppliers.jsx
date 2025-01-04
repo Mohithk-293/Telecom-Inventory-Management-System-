@@ -9,29 +9,67 @@ const dummySuppliers = [
 
 function Suppliers() {
     return (
-        <div>
+        <div className="suppliers-container">
             <h1>Suppliers</h1>
-            <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-                <thead>
-                    <tr>
-                        <th style={{ border: '1px solid #ddd', padding: '8px', textAlign: 'left' }}>Name</th>
-                        <th style={{ border: '1px solid #ddd', padding: '8px', textAlign: 'left' }}>Contact</th>
-                        <th style={{ border: '1px solid #ddd', padding: '8px', textAlign: 'left' }}>Phone</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {dummySuppliers.map((supplier) => (
-                        <tr key={supplier.id}>
-                            <td style={{ border: '1px solid #ddd', padding: '8px' }}>{supplier.name}</td>
-                            <td style={{ border: '1px solid #ddd', padding: '8px' }}>{supplier.contact}</td>
-                            <td style={{ border: '1px solid #ddd', padding: '8px' }}>{supplier.phone}</td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
+            <div className="cards-container">
+                {dummySuppliers.map((supplier) => (
+                    <div className="card" key={supplier.id}>
+                        <h2 className="card-title">{supplier.name}</h2>
+                        <p className="card-contact"><strong>Contact:</strong> {supplier.contact}</p>
+                        <p className="card-phone"><strong>Phone:</strong> {supplier.phone}</p>
+                    </div>
+                ))}
+            </div>
+
+            <style>
+                {`
+                    /* Suppliers Container */
+                    .suppliers-container {
+                        padding: 20px;
+                        font-family: Arial, sans-serif;
+                    }
+
+                    /* Cards Container */
+                    .cards-container {
+                        display: grid;
+                        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                        gap: 20px;
+                    }
+
+                    /* Card Styles */
+                    .card {
+                        background-color: #fff;
+                        border: 1px solid #ddd;
+                        border-radius: 8px;
+                        padding: 15px;
+                        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+                        transition: transform 0.3s ease, box-shadow 0.3s ease;
+                    }
+
+                    .card:hover {
+                        transform: translateY(-5px);
+                        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+                    }
+
+                    /* Card Title */
+                    .card-title {
+                        font-size: 1.25rem;
+                        font-weight: bold;
+                        color: #333;
+                        margin-bottom: 10px;
+                    }
+
+                    /* Card Contact and Phone */
+                    .card-contact,
+                    .card-phone {
+                        font-size: 1rem;
+                        color: #555;
+                        margin: 5px 0;
+                    }
+                `}
+            </style>
         </div>
     );
 }
 
 export default Suppliers;
-

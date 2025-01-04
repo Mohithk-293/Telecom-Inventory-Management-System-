@@ -11,29 +11,67 @@ const dummyProducts = [
 
 function Products() {
     return (
-        <div>
+        <div className="products-container">
             <h1>Products</h1>
-            <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-                <thead>
-                    <tr>
-                        <th style={{ border: '1px solid #ddd', padding: '8px', textAlign: 'left' }}>Name</th>
-                        <th style={{ border: '1px solid #ddd', padding: '8px', textAlign: 'left' }}>Price</th>
-                        <th style={{ border: '1px solid #ddd', padding: '8px', textAlign: 'left' }}>Stock</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {dummyProducts.map((product) => (
-                        <tr key={product.id}>
-                            <td style={{ border: '1px solid #ddd', padding: '8px' }}>{product.name}</td>
-                            <td style={{ border: '1px solid #ddd', padding: '8px' }}>${product.price.toFixed(2)}</td>
-                            <td style={{ border: '1px solid #ddd', padding: '8px' }}>{product.stock}</td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
+            <div className="cards-container">
+                {dummyProducts.map((product) => (
+                    <div className="card" key={product.id}>
+                        <h2 className="card-title">{product.name}</h2>
+                        <p className="card-price"><strong>Price:</strong> ${product.price.toFixed(2)}</p>
+                        <p className="card-stock"><strong>Stock:</strong> {product.stock}</p>
+                    </div>
+                ))}
+            </div>
+
+            <style>
+                {`
+                    /* Products Container */
+                    .products-container {
+                        padding: 20px;
+                        font-family: Arial, sans-serif;
+                    }
+
+                    /* Cards Container */
+                    .cards-container {
+                        display: grid;
+                        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                        gap: 20px;
+                    }
+
+                    /* Card Styles */
+                    .card {
+                        background-color: #fff;
+                        border: 1px solid #ddd;
+                        border-radius: 8px;
+                        padding: 15px;
+                        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+                        transition: transform 0.3s ease, box-shadow 0.3s ease;
+                    }
+
+                    .card:hover {
+                        transform: translateY(-5px);
+                        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+                    }
+
+                    /* Card Title */
+                    .card-title {
+                        font-size: 1.25rem;
+                        font-weight: bold;
+                        color: #333;
+                        margin-bottom: 10px;
+                    }
+
+                    /* Card Price and Stock */
+                    .card-price,
+                    .card-stock {
+                        font-size: 1rem;
+                        color: #555;
+                        margin: 5px 0;
+                    }
+                `}
+            </style>
         </div>
     );
 }
 
 export default Products;
-

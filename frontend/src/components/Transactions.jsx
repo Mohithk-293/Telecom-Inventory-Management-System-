@@ -10,31 +10,69 @@ const dummyTransactions = [
 
 function Transactions() {
     return (
-        <div>
+        <div className="transactions-container">
             <h1>Stock Transactions</h1>
-            <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-                <thead>
-                    <tr>
-                        <th style={{ border: '1px solid #ddd', padding: '8px', textAlign: 'left' }}>Date</th>
-                        <th style={{ border: '1px solid #ddd', padding: '8px', textAlign: 'left' }}>Product</th>
-                        <th style={{ border: '1px solid #ddd', padding: '8px', textAlign: 'left' }}>Quantity</th>
-                        <th style={{ border: '1px solid #ddd', padding: '8px', textAlign: 'left' }}>Type</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {dummyTransactions.map((transaction) => (
-                        <tr key={transaction.id}>
-                            <td style={{ border: '1px solid #ddd', padding: '8px' }}>{transaction.date}</td>
-                            <td style={{ border: '1px solid #ddd', padding: '8px' }}>{transaction.product}</td>
-                            <td style={{ border: '1px solid #ddd', padding: '8px' }}>{transaction.quantity}</td>
-                            <td style={{ border: '1px solid #ddd', padding: '8px' }}>{transaction.type}</td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
+            <div className="cards-container">
+                {dummyTransactions.map((transaction) => (
+                    <div className="card" key={transaction.id}>
+                        <h2 className="card-title">{transaction.product}</h2>
+                        <p className="card-date"><strong>Date:</strong> {transaction.date}</p>
+                        <p className="card-quantity"><strong>Quantity:</strong> {transaction.quantity}</p>
+                        <p className="card-type"><strong>Type:</strong> {transaction.type}</p>
+                    </div>
+                ))}
+            </div>
+
+            <style>
+                {`
+                    /* Transactions Container */
+                    .transactions-container {
+                        padding: 20px;
+                        font-family: Arial, sans-serif;
+                    }
+
+                    /* Cards Container */
+                    .cards-container {
+                        display: grid;
+                        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                        gap: 20px;
+                    }
+
+                    /* Card Styles */
+                    .card {
+                        background-color: #fff;
+                        border: 1px solid #ddd;
+                        border-radius: 8px;
+                        padding: 15px;
+                        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+                        transition: transform 0.3s ease, box-shadow 0.3s ease;
+                    }
+
+                    .card:hover {
+                        transform: translateY(-5px);
+                        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+                    }
+
+                    /* Card Title */
+                    .card-title {
+                        font-size: 1.25rem;
+                        font-weight: bold;
+                        color: #333;
+                        margin-bottom: 10px;
+                    }
+
+                    /* Card Date, Quantity, and Type */
+                    .card-date,
+                    .card-quantity,
+                    .card-type {
+                        font-size: 1rem;
+                        color: #555;
+                        margin: 5px 0;
+                    }
+                `}
+            </style>
         </div>
     );
 }
 
 export default Transactions;
-
