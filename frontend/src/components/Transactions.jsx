@@ -1,4 +1,5 @@
 import React from 'react';
+import StaffSidebar from './StaffSidebar';
 
 const dummyTransactions = [
     { id: 1, date: '2023-06-01', product: 'Laptop', quantity: 10, type: 'In' },
@@ -10,18 +11,21 @@ const dummyTransactions = [
 
 function Transactions() {
     return (
-        <div className="transactions-container">
-            <h1>Stock Transactions</h1>
-            <div className="cards-container">
-                {dummyTransactions.map((transaction) => (
-                    <div className="card" key={transaction.id}>
-                        <h2 className="card-title">{transaction.product}</h2>
-                        <p className="card-date"><strong>Date:</strong> {transaction.date}</p>
-                        <p className="card-quantity"><strong>Quantity:</strong> {transaction.quantity}</p>
-                        <p className="card-type"><strong>Type:</strong> {transaction.type}</p>
-                    </div>
-                ))}
-            </div>
+        <div>
+            <StaffSidebar /> 
+            <div className="transactions-container">
+                <h1>Stock Transactions</h1>
+                <div className="cards-container">
+                    {dummyTransactions.map((transaction) => (
+                        <div className="card" key={transaction.id}>
+                            <h2 className="card-title">{transaction.product}</h2>
+                            <p className="card-date"><strong>Date:</strong> {transaction.date}</p>
+                            <p className="card-quantity"><strong>Quantity:</strong> {transaction.quantity}</p>
+                            <p className="card-type"><strong>Type:</strong> {transaction.type}</p>
+                        </div>
+                    ))}
+                </div>
+        </div>
 
             <style>
                 {`
@@ -29,6 +33,9 @@ function Transactions() {
                     .transactions-container {
                         padding: 20px;
                         font-family: Arial, sans-serif;
+                        width:60%;
+                        position: absolute;
+                        right:0;
                     }
 
                     /* Cards Container */

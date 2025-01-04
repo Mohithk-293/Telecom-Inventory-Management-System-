@@ -1,4 +1,5 @@
 import React from 'react';
+import StaffSidebar from './StaffSidebar.jsx';
 
 const dummyProducts = [
     { id: 1, name: 'Laptop', price: 999.99, stock: 50 },
@@ -11,24 +12,30 @@ const dummyProducts = [
 
 function Products() {
     return (
-        <div className="products-container">
-            <h1>Products</h1>
-            <div className="cards-container">
-                {dummyProducts.map((product) => (
-                    <div className="card" key={product.id}>
-                        <h2 className="card-title">{product.name}</h2>
-                        <p className="card-price"><strong>Price:</strong> ${product.price.toFixed(2)}</p>
-                        <p className="card-stock"><strong>Stock:</strong> {product.stock}</p>
-                    </div>
-                ))}
-            </div>
-
+        <div>
+            <StaffSidebar/>                
+            <div className="products-container">
+                <h1>Products</h1>
+                <div className="cards-container">
+                    {dummyProducts.map((product) => (
+                        <div className="card" key={product.id}>
+                            <h2 className="card-title">{product.name}</h2>
+                            <p className="card-price"><strong>Price:</strong> ${product.price.toFixed(2)}</p>
+                            <p className="card-stock"><strong>Stock:</strong> {product.stock}</p>
+                        </div>
+                    ))}
+                </div>
+        </div>
+        
             <style>
                 {`
                     /* Products Container */
                     .products-container {
                         padding: 20px;
                         font-family: Arial, sans-serif;
+                        width:60%;
+                        position: absolute;
+                        right:0;
                     }
 
                     /* Cards Container */

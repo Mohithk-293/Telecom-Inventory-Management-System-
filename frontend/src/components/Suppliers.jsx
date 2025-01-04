@@ -1,4 +1,5 @@
 import React from 'react';
+import StaffSidebar from './StaffSidebar';
 
 const dummySuppliers = [
     { id: 1, name: 'TechCorp', contact: 'John Doe', phone: '123-456-7890' },
@@ -9,17 +10,20 @@ const dummySuppliers = [
 
 function Suppliers() {
     return (
-        <div className="suppliers-container">
-            <h1>Suppliers</h1>
-            <div className="cards-container">
-                {dummySuppliers.map((supplier) => (
-                    <div className="card" key={supplier.id}>
-                        <h2 className="card-title">{supplier.name}</h2>
-                        <p className="card-contact"><strong>Contact:</strong> {supplier.contact}</p>
-                        <p className="card-phone"><strong>Phone:</strong> {supplier.phone}</p>
-                    </div>
-                ))}
-            </div>
+        <div>
+            <StaffSidebar/>                
+            <div className="suppliers-container">
+                <h1>Suppliers</h1>
+                <div className="cards-container">
+                    {dummySuppliers.map((supplier) => (
+                        <div className="card" key={supplier.id}>
+                            <h2 className="card-title">{supplier.name}</h2>
+                            <p className="card-contact"><strong>Contact:</strong> {supplier.contact}</p>
+                            <p className="card-phone"><strong>Phone:</strong> {supplier.phone}</p>
+                        </div>
+                    ))}
+                </div>
+        </div>
 
             <style>
                 {`
@@ -27,6 +31,9 @@ function Suppliers() {
                     .suppliers-container {
                         padding: 20px;
                         font-family: Arial, sans-serif;
+                        width:60%;
+                        position: absolute;
+                        right:0;
                     }
 
                     /* Cards Container */

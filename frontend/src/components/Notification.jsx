@@ -1,4 +1,5 @@
 import React from 'react';
+import StaffSidebar from './StaffSidebar';
 
 const dummyNotifications = [
     { id: 1, message: 'Low stock alert: Laptop', date: '2023-06-05', type: 'warning' },
@@ -11,25 +12,32 @@ const dummyNotifications = [
 function Notifications() {
     return (
         <div>
-            <h1>Notifications</h1>
-            <ul style={{ listStyleType: 'none', padding: 0 }}>
-                {dummyNotifications.map((notification) => (
-                    <li
-                        key={notification.id}
-                        style={{
-                            border: '1px solid #ddd',
-                            marginBottom: '10px',
-                            padding: '10px',
-                            backgroundColor: notification.type === 'warning' ? '#fff3cd' :
-                                notification.type === 'alert' ? '#f8d7da' : '#d1ecf1'
-                        }}
-                    >
-                        <strong>{notification.message}</strong>
-                        <br />
-                        <small>{notification.date}</small>
-                    </li>
-                ))}
-            </ul>
+            <StaffSidebar/>                
+            <div style={{
+                width: "60%",
+                position: "absolute",
+                right: "0",
+            }}>
+                <h1>Notifications</h1>
+                <ul style={{ listStyleType: 'none', padding: 0 }}>
+                    {dummyNotifications.map((notification) => (
+                        <li
+                            key={notification.id}
+                            style={{
+                                border: '1px solid #ddd',
+                                marginBottom: '10px',
+                                padding: '10px',
+                                backgroundColor: notification.type === 'warning' ? '#fff3cd' :
+                                    notification.type === 'alert' ? '#f8d7da' : '#d1ecf1'
+                            }}
+                        >
+                            <strong>{notification.message}</strong>
+                            <br />
+                            <small>{notification.date}</small>
+                        </li>
+                    ))}
+                </ul>
+            </div>
         </div>
     );
 }
