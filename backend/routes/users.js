@@ -47,13 +47,14 @@ router.post('/login', async (req, res) => {
   const { username, password, role } = req.body;
 
   // Validate input
-  if (!username || !password) {
+  if (!username || !password || !role) {
     return res.status(400).json({ message: 'Username and password are required' });
   }
 
   try {
     // Find user by username
     const user = await User.findOne({ username });
+    
     if (!user) {
       return res.status(400).json({ message: 'Invalid username' });
     }
@@ -63,7 +64,7 @@ router.post('/login', async (req, res) => {
       return res.status(400).json({ message: 'Invalid password' });
     }
 
-    if(role === user.role) {
+    if(role !== user.role) {
       return res.status(400).json({ message: 'Invalid Role selection' });
     }
     // Respond with success

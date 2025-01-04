@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 const Login = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [role, setRole] = useState("Admin"); // Default role
+    const [role, setRole] = useState("admin"); // Default role
     const [error, setError] = useState("");
     const navigate = useNavigate();
 
@@ -23,7 +23,7 @@ const Login = () => {
             const data = await response.json();
 
             if (response.ok) {
-                alert("Login successful! Redirecting to dashboard...");
+                toast.success("Login successful! ");
                 navigate("/products");
             } else {
                 setError(data.message || "Invalid username or password.");
@@ -75,9 +75,9 @@ const Login = () => {
                             value={role}
                             onChange={(e) => setRole(e.target.value)}
                         >
-                            <option value="Admin">Admin</option>
-                            <option value="Manager">Manager</option>
-                            <option value="Staff">Staff</option>
+                            <option value="admin">Admin</option>
+                            <option value="manager">Manager</option>
+                            <option value="staff">Staff</option>
                         </select>
                     </div>
                     {error && <div className="alert alert-danger">{error}</div>}

@@ -13,8 +13,6 @@ import Register from './components/Register';
 import Products from './components/Products';
 
 import ManagingUsers from './components/ManagingUsers';
-const App = () => {
-
 
 const App = () => {
   return (
@@ -34,10 +32,12 @@ const App = () => {
         <Route path="/suppliers" element={<Suppliers />} />
         <Route path="/transactions" element={<Transactions />} />
         <Route path="/notifications" element={<Notifications />} />
+        <Route path="/managing-users" element={<ManagingUsers />} />
 
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </Router>
+    </div>
   );
 };
 

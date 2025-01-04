@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -25,6 +26,7 @@ const Login = () => {
         alert("Login successful! Redirecting to dashboard...");
         navigate("/products");
       } else {
+        toast.error(data.message);
         setError(data.message || "Invalid username or password.");
       }
     } catch (err) {
