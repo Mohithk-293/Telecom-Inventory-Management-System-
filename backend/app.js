@@ -2,6 +2,12 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 
+var cookieParser = require('cookie-parser');
+var logger = require('morgan');
+var cors = require('cors');
+const connectDB = require('./mongodbConnection/db.connection.js');
+
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -11,7 +17,8 @@ var app = express();
 // view engine setup
 
 
-
+app.use(logger('dev'));
+app.use(cors());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -28,5 +35,11 @@ app.use(function(req, res, next) {
 
 // error handler
 
+
+app.listen(5000,()=>{
+  console.log('Server is running on port 5000');  // server is listening on port 5000
+  connectDB(); // connect to MongoDB database  // connect to MongoDB database when the server is running
+
+})
 
 module.exports = app;
