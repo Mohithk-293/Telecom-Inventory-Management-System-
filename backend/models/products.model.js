@@ -39,6 +39,7 @@ const productSchema = new mongoose.Schema({
         type: String,
         required: true,
         unique: true,
+        ref: 'Supplier',
         match: [/^\S+@\S+\.\S+$/, 'Please enter a valid email address'] 
     }
 });
