@@ -33,7 +33,7 @@ function Transactions() {
                     .transactions-container {
                         padding: 20px;
                         font-family: Arial, sans-serif;
-                        width:60%;
+                        width:80%;
                         position: absolute;
                         right:0;
                     }

@@ -14,7 +14,7 @@ function Notifications() {
         <div>
             <StaffSidebar/>                
             <div style={{
-                width: "60%",
+                width: "80%",
                 position: "absolute",
                 right: "0",
             }}>
