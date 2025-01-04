@@ -34,6 +34,13 @@ const productSchema = new mongoose.Schema({
     ReorderPoint: {
         type: Number,
         required: true
+    },
+    SupplierMail: {
+        type: String,
+        required: true,
+        unique: true,
+        ref: 'Supplier',
+        match: [/^\S+@\S+\.\S+$/, 'Please enter a valid email address'] 
     }
 });
 

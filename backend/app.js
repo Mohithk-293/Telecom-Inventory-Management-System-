@@ -13,7 +13,7 @@ const connectDB = require('./mongodbConnection/db.connection.js');
 
 
 var usersRouter = require('./routes/users');
-
+const productRoutes = require('./routes/product');
 
 
 var app = express();
@@ -32,15 +32,25 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/users', usersRouter);
 
+app.use('/products', productRoutes);
+
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
 
 
-app.listen(5000,()=>{
+
+
+
+
+
+
+
+
+app.listen(5000, () => {
   console.log('Server is running on port 5000');  // server is listening on port 5000
   connectDB(); // connect to MongoDB database  // connect to MongoDB database when the server is running
 

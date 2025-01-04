@@ -13,7 +13,7 @@ const dummyProducts = [
 function Products() {
     return (
         <div>
-            <StaffSidebar/>                
+            <StaffSidebar/>
             <div className="products-container">
                 <h1>Products</h1>
                 <div className="cards-container">
@@ -26,7 +26,7 @@ function Products() {
                     ))}
                 </div>
         </div>
-        
+
             <style>
                 {`
                     /* Products Container */
@@ -82,3 +82,4 @@ function Products() {
 }
 
 export default Products;
+

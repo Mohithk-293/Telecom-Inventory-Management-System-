@@ -5,7 +5,7 @@ import "./StaffSidebar.css";
 const StaffSidebar = () => {
     const location = useLocation();
     const navItems = [
-        { name: 'View Products', href: '/products', icon: Package },
+        { name: 'View Products', href: '/staff-products', icon: Package },
         { name: 'View Suppliers', href: '/suppliers', icon: Truck },
         { name: 'Stock Transactions', href: '/transactions', icon: BarChart2 },
         { name: 'View Notifications', href: '/notifications', icon: Bell },
