@@ -13,7 +13,7 @@ const connectDB = require('./mongodbConnection/db.connection.js');
 
 
 var usersRouter = require('./routes/users');
-const productRoutes = require('./routes/product');
+const productRoutes = require('./routes/products');
 
 
 var app = express();

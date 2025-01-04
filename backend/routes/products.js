@@ -2,21 +2,9 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 
-// Product Schema
-const productSchema = new mongoose.Schema({
-    ProductName: { type: String, required: true },
-    Description: { type: String, required: true },
-    ProductImage: { type: String, default: null },
-    ProductCategoryName: { type: String, required: true },
-    ModelNumber: { type: String, required: true },
-    SerialNumber: { type: String, unique: true, required: true },
-    StockLevel: { type: Number, required: true },
-    ReorderPoint: { type: Number, required: true },
-    SupplierMail: { type: String, required: true }
-}, { timestamps: true });
+const Product = require('../models/products.model.js');
 
-const Product = mongoose.model('Product', productSchema);
-
+// Product Schem
 // Route to add a product
 router.post('/add', async (req, res) => {
     const {
@@ -59,5 +47,17 @@ router.post('/add', async (req, res) => {
         res.status(500).json({ message: 'Failed to add product!', error: error.message });
     }
 });
+
+router.get('/', async (req, res) => {
+    try {
+        const products = await Product.find(); // Fetch all products from the DB
+        console.log(products);
+        res.status(200).json(products); // Send products as a JSON response
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: 'Server error' });
+    }
+});
+
 
 module.exports = router;

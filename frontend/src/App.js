@@ -5,6 +5,7 @@ import Login from './components/Login';
 import Header from './components/Header';
 import Register from './components/Register';
 import Products from './components/Products';
+import ManagingUsers from './components/ManagingUsers';
 const App = () => {
 
 
@@ -18,6 +19,7 @@ const App = () => {
           <Route path='/' element={<Home />} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
+          <Route path='/products' element={<Products />} />
           <Route path='/products' element={<Products />} />
 
 
